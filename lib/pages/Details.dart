@@ -274,7 +274,7 @@ class _DetailsState extends State<Details> {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(
-                          'Jln. Kappan Sukses No. 20 \n Palembang',
+                          'Jln. Kappan Sukses No.20 \n Palembang',
                           style: AddressDetail,
                         ),
                         InkWell(
