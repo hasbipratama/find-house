@@ -1,3 +1,4 @@
+import 'package:find_house/model/MainFacilitiesDetail_Model.dart';
 import 'package:find_house/pages/Calling.dart';
 import 'package:find_house/pages/Home.dart';
 import 'package:find_house/theme/home.dart';
@@ -6,6 +7,7 @@ import 'package:find_house/model/Details_Model.dart';
 import 'package:find_house/theme/details.dart';
 import 'package:find_house/theme/splash.dart';
 import 'package:find_house/pages/Map.dart';
+import 'package:find_house/widget/MainFaciltiesDetail.dart';
 
 class Details extends StatefulWidget {
   @override
@@ -121,86 +123,28 @@ class _DetailsState extends State<Details> {
             Row(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Image.asset(
-                      'assets/baricon.png',
-                      width: 32,
-                    ),
-                    SizedBox(
-                      height: 8,
-                    ),
-                    Row(
-                      children: [
-                        Text(
-                          '2',
-                          style: TextStyle(
-                            color: Color(0xff5843BE),
-                            fontWeight: FontWeight.w500,
-                          ),
-                        ),
-                        Text(
-                          ' Kitchen',
-                        )
-                      ],
-                    ),
-                  ],
+                MainFacilitiesDetail(
+                  mainFaicilitiesModel: MainFaicilitiesDetailModel(
+                      ImageUrl: 'assets/baricon.png',
+                      Amount: '2',
+                      Name: 'Kitchen'),
                 ),
                 Spacer(),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Image.asset(
-                      'assets/badroomicon.png',
-                      width: 32,
-                    ),
-                    SizedBox(
-                      height: 8,
-                    ),
-                    Row(
-                      children: [
-                        Text(
-                          '3',
-                          style: TextStyle(
-                            color: Color(0xff5843BE),
-                            fontWeight: FontWeight.w500,
-                          ),
-                        ),
-                        Text(
-                          ' Bedroom',
-                        ),
-                      ],
-                    )
-                  ],
+                MainFacilitiesDetail(
+                  mainFaicilitiesModel: MainFaicilitiesDetailModel(
+                    ImageUrl: 'assets/badroomicon.png',
+                    Amount: '3',
+                    Name: 'Badroom',
+                  ),
                 ),
                 Spacer(),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Image.asset(
-                      'assets/cupboardicon.png',
-                      width: 32,
-                    ),
-                    SizedBox(
-                      height: 8,
-                    ),
-                    Row(
-                      children: [
-                        Text(
-                          '3',
-                          style: TextStyle(
-                            color: Color(0xff5843BE),
-                            fontWeight: FontWeight.w500,
-                          ),
-                        ),
-                        Text(
-                          ' Big Lemari',
-                        )
-                      ],
-                    ),
-                  ],
-                )
+                MainFacilitiesDetail(
+                  mainFaicilitiesModel: MainFaicilitiesDetailModel(
+                    ImageUrl: 'assets/cupboardicon.png',
+                    Amount: '3',
+                    Name: 'Big Lemari',
+                  ),
+                ),
               ],
             ),
             SizedBox(
