@@ -8,6 +8,7 @@ import 'package:find_house/theme/details.dart';
 import 'package:find_house/theme/splash.dart';
 import 'package:find_house/pages/Map.dart';
 import 'package:find_house/widget/MainFaciltiesDetail.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class Details extends StatefulWidget {
   @override
