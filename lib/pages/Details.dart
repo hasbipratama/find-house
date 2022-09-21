@@ -1,7 +1,9 @@
 import 'package:find_house/model/MainFacilitiesDetail_Model.dart';
+import 'package:find_house/model/Photos_model.dart';
 import 'package:find_house/pages/Calling.dart';
 import 'package:find_house/pages/Home.dart';
 import 'package:find_house/theme/home.dart';
+import 'package:find_house/widget/Photos.dart';
 import 'package:flutter/material.dart';
 import 'package:find_house/model/Details_Model.dart';
 import 'package:find_house/theme/details.dart';
@@ -165,42 +167,42 @@ class _DetailsState extends State<Details> {
                   scrollDirection: Axis.horizontal,
                   child: Row(
                     children: [
-                      Image.asset(
-                        'assets/picdetails1.png',
-                        width: 110,
-                        height: 88,
+                      Photos(
+                        photos: PhotosModel(
+                          ImageUrl: 'assets/picdetails1.png',
+                        ),
                       ),
                       SizedBox(
-                        width: 20,
+                        width: 18,
                       ),
-                      Image.asset(
-                        'assets/picdetails2.png',
-                        width: 110,
-                        height: 88,
-                      ),
-                      SizedBox(
-                        width: 20,
-                      ),
-                      Image.asset(
-                        'assets/picdetails3.png',
-                        width: 110,
-                        height: 88,
+                      Photos(
+                        photos: PhotosModel(
+                          ImageUrl: 'assets/picdetails2.png',
+                        ),
                       ),
                       SizedBox(
-                        width: 20,
+                        width: 18,
                       ),
-                      Image.asset(
-                        'assets/picdetails4.png',
-                        width: 110,
-                        height: 88,
+                      Photos(
+                        photos: PhotosModel(
+                          ImageUrl: 'assets/picdetails3.png',
+                        ),
                       ),
                       SizedBox(
-                        width: 20,
+                        width: 18,
                       ),
-                      Image.asset(
-                        'assets/picdetails5.png',
-                        width: 110,
-                        height: 88,
+                      Photos(
+                        photos: PhotosModel(
+                          ImageUrl: 'assets/picdetails4.png',
+                        ),
+                      ),
+                      SizedBox(
+                        width: 18,
+                      ),
+                      Photos(
+                        photos: PhotosModel(
+                          ImageUrl: 'assets/picdetails5.png',
+                        ),
                       ),
                     ],
                   ),

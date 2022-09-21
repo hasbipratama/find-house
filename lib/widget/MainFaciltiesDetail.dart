@@ -5,7 +5,9 @@ import 'package:find_house/model/MainFacilitiesDetail_Model.dart';
 class MainFacilitiesDetail extends StatelessWidget {
   MainFaicilitiesDetailModel mainFaicilitiesModel;
 
-  MainFacilitiesDetail({required this.mainFaicilitiesModel});
+  MainFacilitiesDetail({
+    required this.mainFaicilitiesModel,
+  });
 
   @override
   Widget build(BuildContext context) {
