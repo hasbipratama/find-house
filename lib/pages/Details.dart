@@ -1,6 +1,5 @@
 import 'package:find_house/model/MainFacilitiesDetail_Model.dart';
 import 'package:find_house/model/Photos_model.dart';
-import 'package:find_house/pages/Calling.dart';
 import 'package:find_house/pages/Home.dart';
 import 'package:find_house/theme/home.dart';
 import 'package:find_house/widget/Photos.dart';
@@ -8,12 +7,15 @@ import 'package:flutter/material.dart';
 import 'package:find_house/model/Details_Model.dart';
 import 'package:find_house/theme/details.dart';
 import 'package:find_house/theme/splash.dart';
-import 'package:find_house/pages/Map.dart';
 import 'package:find_house/widget/MainFaciltiesDetail.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:url_launcher/url_launcher_string.dart';
+import 'package:find_house/pages/Error.dart';
 
 class Details extends StatefulWidget {
   @override
+// Model
+
   details_model details;
 
   Details({required this.details});
@@ -22,8 +24,65 @@ class Details extends StatefulWidget {
   State<Details> createState() => _DetailsState();
 }
 
+bool IsApplied = false;
+
 class _DetailsState extends State<Details> {
   Widget build(BuildContext context) {
+    // URL Launcher
+    // ignore: unused_element
+    launchUrl(String url) async {
+      // ignore: deprecated_member_use
+      if (await canLaunch(url)) {
+        // ignore: deprecated_member_use
+        launch(url);
+      } else {
+        Navigator.push(
+          context,
+          MaterialPageRoute(
+            builder: (context) => ErrorPage(),
+          ),
+        );
+      }
+    }
+
+    Widget Btnnopress() {
+      return InkWell(
+        onTap: () {
+          setState(() {
+            IsApplied = !IsApplied;
+          });
+        },
+        child: Container(
+          width: 40,
+          height: 40,
+          child: Image.asset(
+            'assets/btnlove.png',
+            width: 40,
+            height: 40,
+          ),
+        ),
+      );
+    }
+
+    Widget Btnpress() {
+      return InkWell(
+        onTap: () {
+          setState(() {
+            IsApplied = !IsApplied;
+          });
+        },
+        child: Container(
+          width: 40,
+          height: 40,
+          child: Image.asset(
+            'assets/btnpress.png',
+            width: 40,
+            height: 40,
+          ),
+        ),
+      );
+    }
+
     Widget Header() {
       return Stack(
         children: [
@@ -58,14 +117,7 @@ class _DetailsState extends State<Details> {
                     ],
                   ),
                   Spacer(),
-                  InkWell(
-                    onTap: () {},
-                    child: Image.asset(
-                      'assets/btnlove.png',
-                      width: 40,
-                      height: 40,
-                    ),
-                  )
+                  IsApplied ? Btnpress() : Btnnopress(),
                 ],
               ),
             ),
@@ -226,11 +278,8 @@ class _DetailsState extends State<Details> {
                         ),
                         InkWell(
                           onTap: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => MapPage(),
-                              ),
+                            launchUrl(
+                              "https://www.google.com/maps/place/Batam+'s+Office/@1.1277689,104.0547514,18.77z/data=!4m12!1m6!3m5!1s0x31d9891f5db106f7:0xc99e0a348e673c11!2sAnta+Sari+Semesta.+PT!8m2!3d1.1234601!4d104.0239506!3m4!1s0x31d988e2eb4e0e05:0x5ddd08a64d2d6a23!8m2!3d1.1276777!4d104.0554723",
                             );
                           },
                           child: Image.asset(
@@ -264,12 +313,7 @@ class _DetailsState extends State<Details> {
                 ),
               ),
               onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => Calling(),
-                  ),
-                );
+                launchUrl('tel:+6282317723160');
               },
               child: Text(
                 'Book Now',
