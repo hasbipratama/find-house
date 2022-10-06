@@ -106,9 +106,20 @@ class _RecomSpaceState extends State<RecomSpace> {
                 SizedBox(
                   height: 16,
                 ),
-                Text(
-                  widget.space.locationspace,
-                  style: CityRecomendSpace,
+                Row(
+                  children: [
+                    Text(
+                      widget.space.city,
+                      style: CityRecomendSpace,
+                    ),
+                    SizedBox(
+                      width: 2,
+                    ),
+                    Text(
+                      widget.space.country,
+                      style: CityRecomendSpace,
+                    ),
+                  ],
                 ),
               ],
             ),
