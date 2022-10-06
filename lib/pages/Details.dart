@@ -88,7 +88,7 @@ class _DetailsState extends State<Details> {
         children: [
           ClipRRect(
             borderRadius: BorderRadius.circular(28),
-            child: Image.asset(
+            child: Image.network(
               widget.details.imagedetails,
             ),
           ),

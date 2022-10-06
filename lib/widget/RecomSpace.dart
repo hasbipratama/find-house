@@ -8,7 +8,7 @@ class RecomSpace extends StatefulWidget {
   @override
   Space space;
 
-  RecomSpace({required this.space});
+  RecomSpace(Space item, {required this.space});
 
   @override
   State<RecomSpace> createState() => _RecomSpaceState();
@@ -25,10 +25,9 @@ class _RecomSpaceState extends State<RecomSpace> {
             MaterialPageRoute(
               builder: (context) => Details(
                 details: details_model(
-                  imagedetails: widget.space.imageurl,
-                  spacename: widget.space.namespace,
-                  price: widget.space.pricespace,
-                ),
+                    imagedetails: widget.space.imageurl,
+                    spacename: widget.space.namespace,
+                    price: '\$${widget.space.pricespace}'),
               ),
             ),
           );
@@ -42,8 +41,11 @@ class _RecomSpaceState extends State<RecomSpace> {
                 height: 110,
                 child: Stack(
                   children: [
-                    Image.asset(
+                    Image.network(
                       widget.space.imageurl,
+                      width: 130,
+                      height: 110,
+                      fit: BoxFit.cover,
                     ),
                     Align(
                       alignment: Alignment.topRight,
@@ -66,7 +68,7 @@ class _RecomSpaceState extends State<RecomSpace> {
                                 height: 22,
                               ),
                               Text(
-                                widget.space.rating,
+                                '\ ${widget.space.rating}/5',
                                 style: RateRecomendSpace,
                               ),
                             ],
@@ -94,7 +96,7 @@ class _RecomSpaceState extends State<RecomSpace> {
                 Row(
                   children: [
                     Text(
-                      widget.space.pricespace,
+                      '\$${widget.space.pricespace}',
                       style: PriceRecomendSpace,
                     ),
                     Text(

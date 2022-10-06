@@ -2,14 +2,14 @@ class Space {
   int id = 0;
   String imageurl = '';
   String namespace = '';
-  String pricespace = '';
+  int pricespace = 0;
   String city = '';
   String country = '';
-  String rating = '';
+  int rating = 0;
   String address = '';
   String phone = '';
   String mapurl = '';
-  String photos = '';
+  List photos = [];
   int numberofkitchen = 0;
   int numberofbedroom = 0;
   int numberofcupboard = 0;
@@ -33,18 +33,18 @@ class Space {
 
   Space.fromJson(json) {
     id = json['id'];
-    imageurl = json['imageurl'];
-    namespace = json['namespace'];
-    pricespace = json['pricespace'];
+    imageurl = json['image_url'];
+    namespace = json['name'];
+    pricespace = json['price'];
     city = json['city'];
     country = json['country'];
     rating = json['rating'];
     address = json['address'];
     phone = json['phone'];
-    mapurl = json['mapurl'];
+    mapurl = json['map_url'];
     photos = json['photos'];
-    numberofkitchen = json['numberofkitchen'];
-    numberofbedroom = json['numberofbedroom'];
-    numberofcupboard = json['inumberofcupboardd'];
+    numberofkitchen = json['number_of_kitchens'];
+    numberofbedroom = json['number_of_bedrooms'];
+    numberofcupboard = json['number_of_cupboards'];
   }
 }

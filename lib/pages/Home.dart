@@ -3,7 +3,6 @@ import 'package:find_house/model/CardCity_Model.dart';
 import 'package:find_house/model/Guidance_Model.dart';
 import 'package:find_house/model/RecomSpace_Model.dart';
 import 'package:find_house/model/BottomNav_Model.dart';
-import 'package:find_house/pages/Details.dart';
 import 'package:find_house/widget/BottomNav.dart';
 import 'package:find_house/widget/CardCity.dart';
 import 'package:find_house/widget/Guidance.dart';
@@ -12,14 +11,11 @@ import 'package:flutter/material.dart';
 import 'package:find_house/theme/home.dart';
 import 'package:find_house/theme/splash.dart';
 import 'package:provider/provider.dart';
-import 'package:find_house/Provider/Space_Provider.dart';
 
 class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var spaceProvider = Provider.of<SpaceProvider>(context);
-
-    print(spaceProvider.GetRecommendedSpace());
 
     Widget Header() {
       return Padding(
@@ -117,104 +113,25 @@ class Home extends StatelessWidget {
             SizedBox(
               height: 16,
             ),
-            Column(
-              children: [
-                RecomSpace(
-                  space: Space(
-                    id: 1,
-                    imageurl: 'assets/picrecom1.png',
-                    namespace: 'Kuretakeso Hott',
-                    pricespace: '\$52',
-                    city: 'Bandung',
-                    country: 'Indonesia',
-                    rating: '4/5',
-                    address: 'Jln. Kappan Sukses No. 20 \n Palembang',
-                    phone: 'tel:+6282317723160',
-                    mapurl:
-                        "https://www.google.com/maps/place/Batam+'s+Office/@1.1277689,104.0547514,18.77z/data=!4m12!1m6!3m5!1s0x31d9891f5db106f7:0xc99e0a348e673c11!2sAnta+Sari+Semesta.+PT!8m2!3d1.1234601!4d104.0239506!3m4!1s0x31d988e2eb4e0e05:0x5ddd08a64d2d6a23!8m2!3d1.1276777!4d104.0554723",
-                    photos: 'assets/picdetails1.png',
-                    numberofkitchen: 2,
-                    numberofbedroom: 3,
-                    numberofcupboard: 1,
-                  ),
-                ),
-                RecomSpace(
-                  space: Space(
-                    id: 2,
-                    imageurl: 'assets/picrecom2.png',
-                    namespace: 'Roemah Nenek',
-                    pricespace: '\$11',
-                    city: 'Seattle',
-                    country: 'Germany',
-                    rating: '5/5',
-                    address: 'Jln. Kappan Sukses No. 20 \n Palembang',
-                    phone: 'tel:+6282317723160',
-                    mapurl:
-                        "https://www.google.com/maps/place/Batam+'s+Office/@1.1277689,104.0547514,18.77z/data=!4m12!1m6!3m5!1s0x31d9891f5db106f7:0xc99e0a348e673c11!2sAnta+Sari+Semesta.+PT!8m2!3d1.1234601!4d104.0239506!3m4!1s0x31d988e2eb4e0e05:0x5ddd08a64d2d6a23!8m2!3d1.1276777!4d104.0554723",
-                    photos: 'assets/picdetails2.png',
-                    numberofkitchen: 2,
-                    numberofbedroom: 3,
-                    numberofcupboard: 1,
-                  ),
-                ),
-                RecomSpace(
-                  space: Space(
-                    id: 3,
-                    imageurl: 'assets/picrecom3.png',
-                    namespace: 'Darrling How',
-                    pricespace: '\$20',
-                    city: 'Jakarta',
-                    country: 'Indonesia',
-                    rating: '3/5',
-                    address: 'Jln. Kappan Sukses No. 20 \n Palembang',
-                    phone: 'tel:+6282317723160',
-                    mapurl:
-                        "https://www.google.com/maps/place/Batam+'s+Office/@1.1277689,104.0547514,18.77z/data=!4m12!1m6!3m5!1s0x31d9891f5db106f7:0xc99e0a348e673c11!2sAnta+Sari+Semesta.+PT!8m2!3d1.1234601!4d104.0239506!3m4!1s0x31d988e2eb4e0e05:0x5ddd08a64d2d6a23!8m2!3d1.1276777!4d104.0554723",
-                    photos: 'assets/picdetails3.png',
-                    numberofkitchen: 2,
-                    numberofbedroom: 3,
-                    numberofcupboard: 1,
-                  ),
-                ),
-                RecomSpace(
-                  space: Space(
-                    id: 4,
-                    imageurl: 'assets/picrecom4.png',
-                    namespace: 'Orang Crown',
-                    pricespace: '\$552',
-                    city: 'Halla',
-                    country: 'Mexico',
-                    rating: '5/5',
-                    address: 'Jln. Kappan Sukses No. 20 \n Palembang',
-                    phone: 'tel:+6282317723160',
-                    mapurl:
-                        "https://www.google.com/maps/place/Batam+'s+Office/@1.1277689,104.0547514,18.77z/data=!4m12!1m6!3m5!1s0x31d9891f5db106f7:0xc99e0a348e673c11!2sAnta+Sari+Semesta.+PT!8m2!3d1.1234601!4d104.0239506!3m4!1s0x31d988e2eb4e0e05:0x5ddd08a64d2d6a23!8m2!3d1.1276777!4d104.0554723",
-                    photos: 'assets/picdetails4.png',
-                    numberofkitchen: 2,
-                    numberofbedroom: 3,
-                    numberofcupboard: 1,
-                  ),
-                ),
-                RecomSpace(
-                  space: Space(
-                    id: 5,
-                    imageurl: 'assets/picrecom5.png',
-                    namespace: 'City of Cactus',
-                    pricespace: '\$20',
-                    city: 'Jakarta',
-                    country: 'Indonesia',
-                    rating: '3/5',
-                    address: 'Jln. Kappan Sukses No. 20 \n Palembang',
-                    phone: 'tel:+6282317723160',
-                    mapurl:
-                        "https://www.google.com/maps/place/Batam+'s+Office/@1.1277689,104.0547514,18.77z/data=!4m12!1m6!3m5!1s0x31d9891f5db106f7:0xc99e0a348e673c11!2sAnta+Sari+Semesta.+PT!8m2!3d1.1234601!4d104.0239506!3m4!1s0x31d988e2eb4e0e05:0x5ddd08a64d2d6a23!8m2!3d1.1276777!4d104.0554723",
-                    photos: 'assets/picdetails5.png',
-                    numberofkitchen: 2,
-                    numberofbedroom: 3,
-                    numberofcupboard: 1,
-                  ),
-                ),
-              ],
+            Container(
+              child: FutureBuilder(
+                future: spaceProvider.GetRecommendedSpace(),
+                builder: (context, snapshot) {
+                  if (snapshot.hasData) {
+                    var data = (snapshot.data as List<Space>);
+                    return Column(
+                        children: data
+                            .map((item) => RecomSpace(
+                                  item,
+                                  space: item,
+                                ))
+                            .toList());
+                  }
+                  return Center(
+                    child: CircularProgressIndicator(),
+                  );
+                },
+              ),
             ),
             Text(
               'Tips & Guidance',
