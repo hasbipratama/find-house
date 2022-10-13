@@ -1,5 +1,6 @@
 import 'package:find_house/Pages/Splash.dart';
 import 'package:find_house/model/Details_Model.dart';
+import 'package:find_house/model/Photos_model.dart';
 import 'package:find_house/pages/Calling.dart';
 import 'package:find_house/pages/Dashboard.dart';
 import 'package:find_house/pages/Details.dart';
@@ -28,7 +29,11 @@ class FindHouse extends StatelessWidget {
                     imagedetails: '',
                     spacename: '',
                     price: '',
+                    numberofkitchen: 0,
+                    numberofbedroom: 0,
+                    numberofcupboard: 0,
                   ),
+                  detailphoto: PhotosModel(ImageUrl: []),
                 ),
             'calling': (context) => Calling(),
             'error': (context) => ErrorPage(),

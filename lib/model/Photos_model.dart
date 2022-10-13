@@ -1,7 +1,7 @@
 class PhotosModel {
-  String ImageUrl;
+  List ImageUrl = [];
 
   PhotosModel({
-    this.ImageUrl = '',
+    required this.ImageUrl,
   });
 }

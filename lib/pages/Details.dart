@@ -11,14 +11,19 @@ import 'package:find_house/widget/MainFaciltiesDetail.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:url_launcher/url_launcher_string.dart';
 import 'package:find_house/pages/Error.dart';
+import 'package:find_house/model/Photos_model.dart';
 
 class Details extends StatefulWidget {
   @override
 // Model
 
   details_model details;
+  PhotosModel detailphoto;
 
-  Details({required this.details});
+  Details({
+    required this.details,
+    required this.detailphoto,
+  });
 
   @override
   State<Details> createState() => _DetailsState();
@@ -181,14 +186,14 @@ class _DetailsState extends State<Details> {
                 MainFacilitiesDetail(
                   mainFaicilitiesModel: MainFaicilitiesDetailModel(
                       ImageUrl: 'assets/baricon.png',
-                      Amount: '2',
+                      Amount: '${widget.details.numberofkitchen}',
                       Name: 'Kitchen'),
                 ),
                 Spacer(),
                 MainFacilitiesDetail(
                   mainFaicilitiesModel: MainFaicilitiesDetailModel(
                     ImageUrl: 'assets/badroomicon.png',
-                    Amount: '3',
+                    Amount: '${widget.details.numberofbedroom}',
                     Name: 'Badroom',
                   ),
                 ),
@@ -196,7 +201,7 @@ class _DetailsState extends State<Details> {
                 MainFacilitiesDetail(
                   mainFaicilitiesModel: MainFaicilitiesDetailModel(
                     ImageUrl: 'assets/cupboardicon.png',
-                    Amount: '3',
+                    Amount: '${widget.details.numberofcupboard}',
                     Name: 'Big Lemari',
                   ),
                 ),
@@ -221,39 +226,7 @@ class _DetailsState extends State<Details> {
                     children: [
                       Photos(
                         photos: PhotosModel(
-                          ImageUrl: 'assets/picdetails1.png',
-                        ),
-                      ),
-                      SizedBox(
-                        width: 18,
-                      ),
-                      Photos(
-                        photos: PhotosModel(
-                          ImageUrl: 'assets/picdetails2.png',
-                        ),
-                      ),
-                      SizedBox(
-                        width: 18,
-                      ),
-                      Photos(
-                        photos: PhotosModel(
-                          ImageUrl: 'assets/picdetails3.png',
-                        ),
-                      ),
-                      SizedBox(
-                        width: 18,
-                      ),
-                      Photos(
-                        photos: PhotosModel(
-                          ImageUrl: 'assets/picdetails4.png',
-                        ),
-                      ),
-                      SizedBox(
-                        width: 18,
-                      ),
-                      Photos(
-                        photos: PhotosModel(
-                          ImageUrl: 'assets/picdetails5.png',
+                          ImageUrl: widget.detailphoto.ImageUrl,
                         ),
                       ),
                     ],
@@ -272,9 +245,18 @@ class _DetailsState extends State<Details> {
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Text(
-                          'Jln. Kappan Sukses No. 20 \n Palembang',
-                          style: AddressDetail,
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              widget.details.address,
+                              style: AddressDetail,
+                            ),
+                            Text(
+                              widget.details.city,
+                              style: AddressDetail,
+                            ),
+                          ],
                         ),
                         InkWell(
                           onTap: () {
