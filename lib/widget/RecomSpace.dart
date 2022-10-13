@@ -1,3 +1,5 @@
+import 'package:find_house/model/Photos_model.dart';
+import 'package:find_house/widget/Photos.dart';
 import 'package:flutter/material.dart';
 import 'package:find_house/theme/home.dart';
 import 'package:find_house/model/RecomSpace_Model.dart';
@@ -25,9 +27,16 @@ class _RecomSpaceState extends State<RecomSpace> {
             MaterialPageRoute(
               builder: (context) => Details(
                 details: details_model(
-                    imagedetails: widget.space.imageurl,
-                    spacename: widget.space.namespace,
-                    price: '\$${widget.space.pricespace}'),
+                  imagedetails: widget.space.imageurl,
+                  spacename: widget.space.namespace,
+                  price: '\$${widget.space.pricespace}',
+                  numberofkitchen: widget.space.numberofkitchen,
+                  numberofbedroom: widget.space.numberofbedroom,
+                  numberofcupboard: widget.space.numberofcupboard,
+                  address: widget.space.address,
+                  city: widget.space.city,
+                ),
+                detailphoto: PhotosModel(ImageUrl: widget.space.photos),
               ),
             ),
           );
