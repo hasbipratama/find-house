@@ -1,17 +1,18 @@
 import 'package:find_house/model/MainFacilitiesDetail_Model.dart';
 import 'package:find_house/model/Photos_model.dart';
 import 'package:find_house/pages/Home.dart';
-import 'package:find_house/theme/home.dart';
 import 'package:find_house/widget/Photos.dart';
 import 'package:flutter/material.dart';
 import 'package:find_house/model/Details_Model.dart';
 import 'package:find_house/theme/details.dart';
 import 'package:find_house/theme/splash.dart';
+import 'package:find_house/theme/home.dart';
 import 'package:find_house/widget/MainFaciltiesDetail.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:url_launcher/url_launcher_string.dart';
 import 'package:find_house/pages/Error.dart';
 import 'package:find_house/model/Photos_model.dart';
+import 'package:find_house/widget/Rating.dart';
 
 class Details extends StatefulWidget {
   @override
@@ -134,7 +135,7 @@ class _DetailsState extends State<Details> {
     Widget Main() {
       return Padding(
         padding: const EdgeInsets.only(
-          left: 25,
+          left: 24,
           right: 25,
         ),
         child: Column(
@@ -164,9 +165,16 @@ class _DetailsState extends State<Details> {
                   ],
                 ),
                 Spacer(),
-                Image.asset(
-                  'assets/rate.png',
-                  width: 108,
+                Row(
+                  children: [1, 2, 3, 4, 5].map((index) {
+                    return Container(
+                      margin: EdgeInsets.only(left: 2),
+                      child: Rating(
+                        index: index,
+                        ratingitem: widget.details.rating,
+                      ),
+                    );
+                  }).toList(),
                 )
               ],
             ),
@@ -218,7 +226,7 @@ class _DetailsState extends State<Details> {
                   style: TitleCard,
                 ),
                 SizedBox(
-                  height: 12,
+                  height: 20,
                 ),
                 SingleChildScrollView(
                   scrollDirection: Axis.horizontal,
@@ -261,8 +269,8 @@ class _DetailsState extends State<Details> {
                         InkWell(
                           onTap: () {
                             launchUrl(
-                              "https://www.google.com/maps/place/Batam+'s+Office/@1.1277689,104.0547514,18.77z/data=!4m12!1m6!3m5!1s0x31d9891f5db106f7:0xc99e0a348e673c11!2sAnta+Sari+Semesta.+PT!8m2!3d1.1234601!4d104.0239506!3m4!1s0x31d988e2eb4e0e05:0x5ddd08a64d2d6a23!8m2!3d1.1276777!4d104.0554723",
-                            );
+                                // "https://www.google.com/maps/place/Batam+'s+Office/@1.1277689,104.0547514,18.77z/data=!4m12!1m6!3m5!1s0x31d9891f5db106f7:0xc99e0a348e673c11!2sAnta+Sari+Semesta.+PT!8m2!3d1.1234601!4d104.0239506!3m4!1s0x31d988e2eb4e0e05:0x5ddd08a64d2d6a23!8m2!3d1.1276777!4d104.0554723",
+                                "${widget.details.mapurl}");
                           },
                           child: Image.asset(
                             'assets/btnloc.png',
@@ -295,7 +303,10 @@ class _DetailsState extends State<Details> {
                 ),
               ),
               onPressed: () {
-                launchUrl('tel:+6282317723160');
+                launchUrl(
+                  // 'tel:+6282317723160',
+                  'tel:${widget.details.phone}',
+                );
               },
               child: Text(
                 'Book Now',
