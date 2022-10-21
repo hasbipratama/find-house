@@ -9,18 +9,24 @@ class Photos extends StatelessWidget {
 
   Photos({required this.photos});
 
+  int index = 0;
+
   Widget build(BuildContext context) {
     return Row(
       children: photos.ImageUrl.map((item) {
-        return ClipRRect(
-          borderRadius: BorderRadius.circular(30),
-          child: Container(
-            decoration: BoxDecoration(borderRadius: BorderRadius.circular(17)),
-            margin: EdgeInsets.only(left: 24),
+        index++;
+        return Container(
+          margin: EdgeInsets.only(
+            left: index == 1 ? 0 : 24,
+          ),
+          height: 88,
+          child: ClipRRect(
+            borderRadius: BorderRadius.circular(16),
             child: Image.network(
               item,
-              height: 110,
+              height: 88,
               width: 110,
+              fit: BoxFit.cover,
             ),
           ),
         );

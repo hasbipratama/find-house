@@ -7,6 +7,9 @@ class details_model {
   int numberofkitchen;
   int numberofbedroom;
   int numberofcupboard;
+  String mapurl;
+  String phone;
+  int rating;
 
   details_model({
     this.imagedetails = '',
@@ -17,5 +20,8 @@ class details_model {
     required this.numberofkitchen,
     required this.numberofbedroom,
     required this.numberofcupboard,
+    this.mapurl = '',
+    this.phone = '',
+    this.rating = 0,
   });
 }
