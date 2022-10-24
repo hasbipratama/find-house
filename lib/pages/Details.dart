@@ -9,9 +9,7 @@ import 'package:find_house/theme/splash.dart';
 import 'package:find_house/theme/home.dart';
 import 'package:find_house/widget/MainFaciltiesDetail.dart';
 import 'package:url_launcher/url_launcher.dart';
-import 'package:url_launcher/url_launcher_string.dart';
 import 'package:find_house/pages/Error.dart';
-import 'package:find_house/model/Photos_model.dart';
 import 'package:find_house/widget/Rating.dart';
 
 class Details extends StatefulWidget {
@@ -86,6 +84,49 @@ class _DetailsState extends State<Details> {
             height: 40,
           ),
         ),
+      );
+    }
+
+    showConfirmation() async {
+      return showDialog(
+        context: context,
+        builder: (BuildContext context) {
+          return AlertDialog(
+            title: Text('Konfirmasi'),
+            content: SingleChildScrollView(
+              child: Row(
+                children: [
+                  Text(
+                    'Apakah Kamu Ingin menghubungi?',
+                  ),
+                ],
+              ),
+            ),
+            actions: [
+              TextButton(
+                child: Text(
+                  'Setuju',
+                  style: TextStyle(color: Colors.green),
+                ),
+                onPressed: () {
+                  Navigator.of(context).pop();
+                  launchUrl(
+                    'tel:${widget.details.phone}',
+                  );
+                },
+              ),
+              TextButton(
+                child: Text(
+                  'Batal',
+                  style: TextStyle(color: Colors.red),
+                ),
+                onPressed: () {
+                  Navigator.of(context).pop();
+                },
+              ),
+            ],
+          );
+        },
       );
     }
 
@@ -303,10 +344,7 @@ class _DetailsState extends State<Details> {
                 ),
               ),
               onPressed: () {
-                launchUrl(
-                  // 'tel:+6282317723160',
-                  'tel:${widget.details.phone}',
-                );
+                showConfirmation();
               },
               child: Text(
                 'Book Now',
